@@ -6,6 +6,8 @@ app = Flask(__name__)
 UPLOAD_FOLDER = os.path.basename('uploads')
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=8756)
 
 @app.route('/')
 def hello_world():
