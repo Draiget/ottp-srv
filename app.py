@@ -7,12 +7,12 @@ app = Flask(__name__)
 UPLOAD_FOLDER = os.path.basename('uploads')
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
-@app.route('/')
+@app.route('/api/')
 def hello_world():
     return jsonify(error = True, message = "stub_page")
 
 @cross_origin()
-@app.route('/upload', methods=['POST'])
+@app.route('/api/upload', methods=['POST'])
 def upload_file():
     try:
         file = request.files['image']
