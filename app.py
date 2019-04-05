@@ -9,7 +9,7 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 @app.route('/api/')
 def hello_world():
-    return jsonify(error = True, message = "stub_page")
+    return jsonify(error = False, message = "stub_page")
 
 @cross_origin()
 @app.route('/api/upload', methods=['POST'])
@@ -31,8 +31,8 @@ def upload_file():
             "engine": "empty",
             "rudder": "empty",
         })
-    except:
-        return jsonify(error=False, message="stub_page")
+    except AssertionError as err:
+        return jsonify(error = True, message = err)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8756)
