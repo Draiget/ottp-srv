@@ -35,7 +35,7 @@ def upload_file():
         })
     except Exception as e:
         print(traceback.format_exc())
-        return jsonify(error = True, message = e)
+        return jsonify(error = True, message = str(e))
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8756)
