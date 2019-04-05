@@ -14,7 +14,7 @@ def hello_world():
     return jsonify(error = False, message = "stub_page")
 
 @cross_origin()
-@app.route('/api/upload/', methods=['GET'])
+@app.route('/api/upload/', methods=['POST'])
 def upload_file():
     try:
         file = request.files['image']
