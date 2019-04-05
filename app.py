@@ -1,5 +1,7 @@
 import os
-from flask import Flask, render_template, request, jsonify
+import traceback
+
+from flask import Flask, render_template, request, jsonify, logging
 from flask_cors import cross_origin
 
 app = Flask(__name__)
@@ -31,8 +33,9 @@ def upload_file():
             "engine": "empty",
             "rudder": "empty",
         })
-    except AssertionError as err:
-        return jsonify(error = True, message = err)
+    except Exception as e:
+        logging.error(traceback.format_exc())
+        return jsonify(error = True, message = e)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8756)
