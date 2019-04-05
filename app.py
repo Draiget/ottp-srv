@@ -1,5 +1,6 @@
 import os
 from flask import Flask, render_template, request, jsonify
+from flask_cors import cross_origin
 
 app = Flask(__name__)
 
@@ -10,6 +11,7 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 def hello_world():
     return jsonify(error = True, message = "stub_page")
 
+@cross_origin()
 @app.route('/upload', methods=['POST'])
 def upload_file():
     try:
