@@ -35,7 +35,7 @@ def upload_file():
             "rudder": "empty",
         })
     except Exception as e:
-        logging.error(traceback.format_exc())
+        print(traceback.format_exc())
         return jsonify(error = True, message = e)
 
 if __name__ == '__main__':
