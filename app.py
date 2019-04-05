@@ -1,8 +1,9 @@
 import os
 import traceback
 
-from flask import Flask, render_template, request, jsonify, logging
+from flask import Flask, render_template, request, jsonify
 from flask_cors import cross_origin
+from pip._internal.utils import logging
 
 app = Flask(__name__)
 
@@ -14,7 +15,7 @@ def hello_world():
     return jsonify(error = False, message = "stub_page")
 
 @cross_origin()
-@app.route('/api/upload/', methods=['POST'])
+@app.route('/api/upload/', methods=['GET'])
 def upload_file():
     try:
         file = request.files['image']
