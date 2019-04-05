@@ -3,7 +3,6 @@ import traceback
 
 from flask import Flask, render_template, request, jsonify
 from flask_cors import cross_origin
-from pip._internal.utils import logging
 
 app = Flask(__name__)
 
